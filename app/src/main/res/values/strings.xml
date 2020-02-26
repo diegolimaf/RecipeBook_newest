@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">RecipeBook_newest</string>
+    <string name="app_name">Recipe Book</string>
+    <string-array name="quantity_array">
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+    <string-array name="diet_array">
+        <item>-select-</item>
+        <item>balanced</item>
+        <item>high-protein</item>
+        <item>low-fat</item>
+        <item>low-carb</item>
+    </string-array>
 </resources>

@@ -1,25 +1,28 @@
 package com.example.recipebook_newest;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 
 public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public ImageView recipe_image;
-    public TextView recipe_title, recipe_portions, recipe_time, recipe_diet, recipe_allergens, recipe_source;
-    public String dietArray = "";
-    public String allergensArray = "";
+    private ImageView recipe_image;
+    private TextView recipe_title, recipe_portions, recipe_time, recipe_diet, recipe_allergens, recipe_source;
+    private String dietArray = "";
+    private String allergensArray = "";
+    private String recipeId = "";
 
     public CustomViewHolder(@NonNull View customLayoutView)
     {
@@ -77,7 +80,9 @@ public class CustomViewHolder extends RecyclerView.ViewHolder implements View.On
                 {
                     e.printStackTrace();
                 }
-            }recipe_diet.setText(dietArray);
+            }
+            recipe_diet.setText(dietArray);
+            dietArray = "";
         }
 
         // Set allergens - It is a JSON Array.
@@ -98,15 +103,21 @@ public class CustomViewHolder extends RecyclerView.ViewHolder implements View.On
                 {
                     e.printStackTrace();
                 }
-            }recipe_allergens.setText(allergensArray);
+            }
+            recipe_allergens.setText(allergensArray);
+            allergensArray = "";
         }
 
-
+        recipeId = data.recipeId;
     }
 
     @Override
-    public void onClick(View v)
+    public void onClick(View myView)
     {
-        Toast.makeText(v.getContext(), "It's working", Toast.LENGTH_SHORT).show();
+        Intent myIntent = new Intent(myView.getContext(), SingleRecipe.class);
+        myIntent.putExtra("recipeId", recipeId);
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) myView.getContext(), recipe_image, "extend_image");
+        myView.getContext().startActivity(myIntent, options.toBundle());
     }
 }

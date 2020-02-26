@@ -4,17 +4,20 @@ import org.json.JSONArray;
 
 public class RecipeData {
 
-    public String urlImage;
-    public String label;
-    public String source;
-    public double portions;
-    public double cookTime;
-    public JSONArray dietLabels;
-    public JSONArray cautions;
+    String recipeId;
+    String urlImage;
+    String label;
+    String source;
+    double portions;
+    double cookTime;
+    JSONArray dietLabels;
+    JSONArray cautions;
 
 
-    public RecipeData(String urlImage, String label, String source, double portions, double cookTime, JSONArray dietLabels, JSONArray healthLabels)
+
+    public RecipeData(String recipeId, String urlImage, String label, String source, double portions, double cookTime, JSONArray dietLabels, JSONArray healthLabels)
     {
+        this.recipeId = recipeId;
         this.urlImage = urlImage;
         this.label = label;
         this.source = source;

@@ -1,24 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/search_background">
+
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="110sp"
+        android:fontFamily="@font/courgette"
+        android:gravity="center"
+        android:text="Find the recipe you need."
+        android:textSize="33sp" />
 
     <EditText
-        android:id="@+id/toSearch"
+        android:id="@+id/toSearch_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:hint="Type here..."
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingStart="100dp"
+        android:paddingEnd="100dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Results :"
+            android:gravity="center_vertical"
+            android:textSize="24dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_quantity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingStart="100dp"
+        android:paddingEnd="100dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Diet:"
+            android:gravity="center_vertical"
+            android:textSize="24dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_diet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3.4"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Health:"
+        android:textSize="28sp"
+        android:gravity="center"/>
+
+    <CheckBox
+        android:id="@+id/check_vegan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:onClick="onCheckedBox"
+        android:text="Vegan"
+        android:textSize="24sp"/>
+
+    <CheckBox
+        android:id="@+id/check_vegetarian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:onClick="onCheckedBox"
+        android:text="Vegetarian"
+        android:textSize="24sp"/>
+
+    <CheckBox
+        android:id="@+id/check_peanut_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:onClick="onCheckedBox"
+        android:text="Peanut-free"
+        android:textSize="24sp"/>
+
+    <CheckBox
+        android:id="@+id/check_alcohol_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:onClick="onCheckedBox"
+        android:text="Alcohol-free"
+        android:textSize="24sp"/>
 
     <Button
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:background="@drawable/button_style"
+        android:shadowColor="#4FA893"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="search"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:onClick="showResults"/>
+        android:onClick="GoToRecyclerView"/>
 
 </LinearLayout>

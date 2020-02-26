@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".list">
 
-    <TextView
-        android:id="@+id/label"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="32dp"/>
+        android:layout_height="60dp"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:onClick="goToSearch"
+            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:src="@drawable/logo"/>
+
+        <EditText
+            android:id="@+id/list_search_bar"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="60dp"/>
+
+        <ImageView
+            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:onClick="newSearch"
+            android:src="@drawable/search_icon"/>
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
